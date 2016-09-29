@@ -60,6 +60,8 @@
     <Compile Include="AddJobScreen.Designer.cs">
       <DependentUpon>AddJobScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="CMRController.cs" />
+    <Compile Include="CRMModel.cs" />
     <Compile Include="FindClientScreen.cs">
       <SubType>Form</SubType>
     </Compile>
