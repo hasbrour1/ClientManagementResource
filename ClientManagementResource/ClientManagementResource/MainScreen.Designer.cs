@@ -34,8 +34,10 @@
             this.searchJobsButton = new System.Windows.Forms.Button();
             this.newClientButton = new System.Windows.Forms.Button();
             this.newJobButton = new System.Windows.Forms.Button();
+            this.jobsGridView = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.jobsGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -44,12 +46,13 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.jobsGridView, 0, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.599508F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.40049F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(769, 407);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(769, 381);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -58,10 +61,9 @@
             this.flowLayoutPanel1.Controls.Add(this.searchJobsButton);
             this.flowLayoutPanel1.Controls.Add(this.newClientButton);
             this.flowLayoutPanel1.Controls.Add(this.newJobButton);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(763, 28);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(763, 26);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // searchClientButton
@@ -100,16 +102,26 @@
             this.newJobButton.Text = "New Job";
             this.newJobButton.UseVisualStyleBackColor = true;
             // 
+            // jobsGridView
+            // 
+            this.jobsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.jobsGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.jobsGridView.Location = new System.Drawing.Point(3, 38);
+            this.jobsGridView.Name = "jobsGridView";
+            this.jobsGridView.Size = new System.Drawing.Size(763, 340);
+            this.jobsGridView.TabIndex = 1;
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 431);
+            this.ClientSize = new System.Drawing.Size(788, 403);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "MainScreen";
             this.Text = "CRM";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.jobsGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -122,5 +134,6 @@
         private System.Windows.Forms.Button searchJobsButton;
         private System.Windows.Forms.Button newClientButton;
         private System.Windows.Forms.Button newJobButton;
+        private System.Windows.Forms.DataGridView jobsGridView;
     }
 }
