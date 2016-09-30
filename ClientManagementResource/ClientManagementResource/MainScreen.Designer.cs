@@ -107,9 +107,9 @@
             // 
             this.jobsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.jobsGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.jobsGridView.Location = new System.Drawing.Point(3, 38);
+            this.jobsGridView.Location = new System.Drawing.Point(3, 58);
             this.jobsGridView.Name = "jobsGridView";
-            this.jobsGridView.Size = new System.Drawing.Size(763, 340);
+            this.jobsGridView.Size = new System.Drawing.Size(763, 320);
             this.jobsGridView.TabIndex = 1;
             // 
             // MainScreen

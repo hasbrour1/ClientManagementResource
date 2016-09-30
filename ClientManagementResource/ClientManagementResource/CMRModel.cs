@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,8 +37,32 @@ namespace ClientManagementResource
 
         public void addClient(String name, int id, String address, double phone)
         {
-            
-        }
+            connection.Open();
 
+            try
+            {
+                cmd = connection.CreateCommand();
+                cmd.CommandText = "INSERT INTO clients VALUES (@id, @name, @address, @number)";
+                cmd.Prepare();
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@name", name);
+                cmd.Parameters.AddWithValue("@address", address);
+                cmd.Parameters.AddWithValue("@number", phone);
+
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
     }
 }
