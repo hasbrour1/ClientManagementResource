@@ -71,15 +71,18 @@ namespace ClientManagementResource
                 int clientId = 0;
                 cmd = connection.CreateCommand();
 
+                
                 cmd.CommandText = "SELECT ClientId FROM clients WHERE clientName = '" + clientName +
                     "';";
                 MySqlDataReader reader;
                 reader = cmd.ExecuteReader();
                 reader.Read();
                 clientId = reader.GetInt32(0);
-                
 
-                Console.WriteLine(clientId + " Made it!");
+                connection.Close();
+                connection.Open();
+
+                cmd = connection.CreateCommand();
                 cmd.CommandText = "INSERT INTO jobs(ClientId, JobDetail, JobDate, JobCost, job_Complete)"
                     + " VALUES (@client, @detail, @date, @cost, false);";
                 cmd.Prepare();
@@ -87,9 +90,6 @@ namespace ClientManagementResource
                 cmd.Parameters.AddWithValue("@detail", details);
                 cmd.Parameters.AddWithValue("@date", date);
                 cmd.Parameters.AddWithValue("@cost", bill);
-
-                Console.WriteLine(cmd.CommandText);
-                Console.WriteLine("stuff: " + clientId + details + date + bill);
 
                 cmd.ExecuteNonQuery();
             }
