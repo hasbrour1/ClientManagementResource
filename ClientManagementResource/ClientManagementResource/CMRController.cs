@@ -20,6 +20,7 @@ namespace ClientManagementResource
         private CMRModel model;
         private MainScreen mainScreen;
         private AddClientScreen addClientScreen;
+        private AddJobScreen addJobScreen;
 
         public CMRController(CMRModel _model, MainScreen _main)
         {
@@ -28,6 +29,8 @@ namespace ClientManagementResource
 
             addClientScreen = new AddClientScreen();
             addClientScreen.setController(this);
+            addJobScreen = new AddJobScreen(model);
+            addJobScreen.setController(this);
         }
 
         public void showNewClientScreen()
@@ -35,14 +38,20 @@ namespace ClientManagementResource
             addClientScreen.Show();
         } 
 
+        public void showNewJobScreen()
+        {
+            addJobScreen.Show();
+        }
+
         public void addClient(String name, String address, double phone)
         {
             model.addClient(name, address, phone);
         }
 
-        public void addJob()
+        public void addJob(String details, String date, int bill, String clientName)
         {
-            
+            model.addJob(details, date, bill, clientName);
+            mainScreen.LoadData();
         }
     }
 }

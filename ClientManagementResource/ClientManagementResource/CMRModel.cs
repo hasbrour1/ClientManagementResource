@@ -47,6 +47,49 @@ namespace ClientManagementResource
                 cmd.Parameters.AddWithValue("@name", name);
                 cmd.Parameters.AddWithValue("@address", address);
                 cmd.Parameters.AddWithValue("@number", phone);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        public void addJob(String details, String date, int bill, String clientName)
+        {
+            connection.Open();
+
+            try
+            {
+                int clientId = 0;
+                cmd = connection.CreateCommand();
+
+                cmd.CommandText = "SELECT ClientId FROM clients WHERE clientName = '" + clientName +
+                    "';";
+                MySqlDataReader reader;
+                reader = cmd.ExecuteReader();
+                reader.Read();
+                clientId = reader.GetInt32(0);
+                
+
+                Console.WriteLine(clientId + " Made it!");
+                cmd.CommandText = "INSERT INTO jobs(ClientId, JobDetail, JobDate, JobCost, job_Complete)"
+                    + " VALUES (@client, @detail, @date, @cost, false);";
+                cmd.Prepare();
+                cmd.Parameters.AddWithValue("@client", clientId);
+                cmd.Parameters.AddWithValue("@detail", details);
+                cmd.Parameters.AddWithValue("@date", date);
+                cmd.Parameters.AddWithValue("@cost", bill);
+
+                Console.WriteLine(cmd.CommandText);
+                Console.WriteLine("stuff: " + clientId + details + date + bill);
 
                 cmd.ExecuteNonQuery();
             }
@@ -62,5 +105,6 @@ namespace ClientManagementResource
                 }
             }
         }
+
     }
 }

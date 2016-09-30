@@ -102,6 +102,7 @@
             this.newJobButton.TabIndex = 3;
             this.newJobButton.Text = "New Job";
             this.newJobButton.UseVisualStyleBackColor = true;
+            this.newJobButton.Click += new System.EventHandler(this.newJobButton_Click);
             // 
             // jobsGridView
             // 

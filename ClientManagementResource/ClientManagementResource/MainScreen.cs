@@ -28,7 +28,7 @@ namespace ClientManagementResource
             controller = _controller;
         }
 
-        private void LoadData()
+        public void LoadData()
         {
             MySqlConnection connection = model.getConnection();
             connection.Open();
@@ -60,6 +60,11 @@ namespace ClientManagementResource
         private void newClientButton_Click(object sender, EventArgs e)
         {
             controller.showNewClientScreen();
+        }
+
+        private void newJobButton_Click(object sender, EventArgs e)
+        {
+            controller.showNewJobScreen();
         }
     }
 }

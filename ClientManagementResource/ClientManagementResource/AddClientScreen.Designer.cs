@@ -117,8 +117,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.custNameBox);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddClientScreen";
-            this.Text = "AddClientScreen";
+            this.Text = "Add New Client";
             this.ResumeLayout(false);
             this.PerformLayout();
 
