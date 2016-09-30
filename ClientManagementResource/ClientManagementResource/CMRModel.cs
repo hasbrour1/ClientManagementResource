@@ -34,5 +34,10 @@ namespace ClientManagementResource
             return connection;
         }
 
+        public void addClient(String name, int id, String address, double phone)
+        {
+            
+        }
+
     }
 }

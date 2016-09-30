@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.custNameBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.custIdBox = new System.Windows.Forms.TextBox();
+            this.custAddrBox = new System.Windows.Forms.TextBox();
+            this.custPhone = new System.Windows.Forms.TextBox();
             this.submitButton = new System.Windows.Forms.Button();
+            this.errorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -48,12 +49,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Customer Name:";
             // 
-            // textBox1
+            // custNameBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(157, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(156, 20);
-            this.textBox1.TabIndex = 1;
+            this.custNameBox.Location = new System.Drawing.Point(157, 36);
+            this.custNameBox.Name = "custNameBox";
+            this.custNameBox.Size = new System.Drawing.Size(156, 20);
+            this.custNameBox.TabIndex = 1;
             // 
             // label2
             // 
@@ -82,26 +83,26 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Phone Number";
             // 
-            // textBox2
+            // custIdBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(157, 73);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(156, 20);
-            this.textBox2.TabIndex = 5;
+            this.custIdBox.Location = new System.Drawing.Point(157, 73);
+            this.custIdBox.Name = "custIdBox";
+            this.custIdBox.Size = new System.Drawing.Size(156, 20);
+            this.custIdBox.TabIndex = 5;
             // 
-            // textBox3
+            // custAddrBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(157, 116);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(222, 20);
-            this.textBox3.TabIndex = 6;
+            this.custAddrBox.Location = new System.Drawing.Point(157, 116);
+            this.custAddrBox.Name = "custAddrBox";
+            this.custAddrBox.Size = new System.Drawing.Size(222, 20);
+            this.custAddrBox.TabIndex = 6;
             // 
-            // textBox4
+            // custPhone
             // 
-            this.textBox4.Location = new System.Drawing.Point(157, 155);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(118, 20);
-            this.textBox4.TabIndex = 7;
+            this.custPhone.Location = new System.Drawing.Point(157, 155);
+            this.custPhone.Name = "custPhone";
+            this.custPhone.Size = new System.Drawing.Size(118, 20);
+            this.custPhone.TabIndex = 7;
             // 
             // submitButton
             // 
@@ -111,20 +112,30 @@
             this.submitButton.TabIndex = 8;
             this.submitButton.Text = "Submit";
             this.submitButton.UseVisualStyleBackColor = true;
+            this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
+            // 
+            // errorLabel
+            // 
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.Location = new System.Drawing.Point(86, 200);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(0, 13);
+            this.errorLabel.TabIndex = 9;
             // 
             // AddClientScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(428, 235);
+            this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.submitButton);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.custPhone);
+            this.Controls.Add(this.custAddrBox);
+            this.Controls.Add(this.custIdBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.custNameBox);
             this.Controls.Add(this.label1);
             this.Name = "AddClientScreen";
             this.Text = "AddClientScreen";
@@ -136,13 +147,14 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox custNameBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox custIdBox;
+        private System.Windows.Forms.TextBox custAddrBox;
+        private System.Windows.Forms.TextBox custPhone;
         private System.Windows.Forms.Button submitButton;
+        private System.Windows.Forms.Label errorLabel;
     }
 }

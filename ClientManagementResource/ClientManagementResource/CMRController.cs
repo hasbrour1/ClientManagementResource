@@ -25,7 +25,9 @@ namespace ClientManagementResource
         {
             model = _model;
             mainScreen = _main;
+
             addClientScreen = new AddClientScreen();
+            addClientScreen.setController(this);
         }
 
         public void showNewClientScreen()
@@ -33,5 +35,14 @@ namespace ClientManagementResource
             addClientScreen.Show();
         } 
 
+        public void addClient(String name, int id, String address, double phone)
+        {
+            model.addClient(name, id, address, phone);
+        }
+
+        public void addJob()
+        {
+
+        }
     }
 }
