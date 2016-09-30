@@ -35,22 +35,20 @@ namespace ClientManagementResource
             return connection;
         }
 
-        public void addClient(String name, int id, String address, double phone)
+        public void addClient(String name, String address, double phone)
         {
             connection.Open();
 
             try
             {
                 cmd = connection.CreateCommand();
-                cmd.CommandText = "INSERT INTO clients VALUES (@id, @name, @address, @number)";
+                cmd.CommandText = "INSERT INTO clients(ClientName, ClientAddress, ClientNumber) VALUES (@name, @address, @number)";
                 cmd.Prepare();
-                cmd.Parameters.AddWithValue("@id", id);
                 cmd.Parameters.AddWithValue("@name", name);
                 cmd.Parameters.AddWithValue("@address", address);
                 cmd.Parameters.AddWithValue("@number", phone);
 
                 cmd.ExecuteNonQuery();
-
             }
             catch (Exception)
             {

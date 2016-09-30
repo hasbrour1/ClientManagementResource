@@ -35,14 +35,14 @@ namespace ClientManagementResource
             addClientScreen.Show();
         } 
 
-        public void addClient(String name, int id, String address, double phone)
+        public void addClient(String name, String address, double phone)
         {
-            model.addClient(name, id, address, phone);
+            model.addClient(name, address, phone);
         }
 
         public void addJob()
         {
-
+            
         }
     }
 }

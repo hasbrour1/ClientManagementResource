@@ -26,20 +26,18 @@ namespace ClientManagementResource
 
         private void submitButton_Click(object sender, EventArgs e)
         {
-            if (custNameBox.Text != "" && custIdBox.Text != "" && custPhone.Text != ""
+            if (custNameBox.Text != "" && custPhone.Text != ""
                 && custAddrBox.Text != "")
             {
                 errorLabel.Text = "";
 
                 try
                 {
-                    int id;
                     double phone;
 
                     String address = custAddrBox.Text;
                     String name = custNameBox.Text;
                     phone = Double.Parse(custPhone.Text);
-                    id = Int32.Parse(custIdBox.Text);
 
                     //chekc if phone number is 10 digits
                     if(phone > 9999999999 || phone < 1000000000)
@@ -48,13 +46,13 @@ namespace ClientManagementResource
                     }
                     else
                     {
-                        controller.addClient(name, id, address, phone);
+                        controller.addClient(name, address, phone);
                         this.Close();
                     }
                 }
                 catch (Exception)
                 {
-                    errorLabel.Text = "* Please fill fields correctly";
+                    errorLabel.Text = "*Error with form data";
                 }          
             }else
             {

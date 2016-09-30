@@ -36,7 +36,7 @@ namespace ClientManagementResource
             try
             {
                 MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "SELECT jobs.JobId, clients.ClientName, clients.ClientPhone," +
+                cmd.CommandText = "SELECT jobs.JobId, clients.ClientName, clients.ClientNumber," +
                     "jobs.JobDetail, jobs.JobDate, jobs.jobcost FROM clients inner" +
                     " join jobs ON clients.ClientId = jobs.ClientId" +
                     " WHERE jobs.job_complete = false;";
