@@ -13,20 +13,24 @@ namespace ClientManagementResource
 {
     public partial class MainScreen : Form
     {
+        public CMRModel model;
+        public CMRController controller;
 
-        public static String MyConnectionString = "Server=localhost;Database=accounts;Uid=root;Pwd=Password1";
-
-
-        public MainScreen()
+        public MainScreen(CMRModel _model)
         {
             InitializeComponent();
-
+            model = _model;
             LoadData();
+        }
+
+        public void setController(CMRController _controller)
+        {
+            controller = _controller;
         }
 
         private void LoadData()
         {
-            MySqlConnection connection = new MySqlConnection(MyConnectionString);
+            MySqlConnection connection = model.getConnection();
             connection.Open();
 
             try
@@ -51,6 +55,11 @@ namespace ClientManagementResource
                     connection.Close();
                 }
             }
+        }
+
+        private void newClientButton_Click(object sender, EventArgs e)
+        {
+            controller.showNewClientScreen();
         }
     }
 }

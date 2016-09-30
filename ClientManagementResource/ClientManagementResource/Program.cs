@@ -11,12 +11,20 @@ namespace ClientManagementResource
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        ///
+
         [STAThread]
         static void Main()
         {
+            CMRModel model = new CMRModel();
+            MainScreen mainScreen = new MainScreen(model);
+            CMRController controller = new CMRController(model, mainScreen);
+
+            mainScreen.setController(controller);
+
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainScreen());
+            //Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(mainScreen);
         }
     }
 }

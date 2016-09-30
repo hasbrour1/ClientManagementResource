@@ -92,6 +92,7 @@
             this.newClientButton.TabIndex = 2;
             this.newClientButton.Text = "New Client";
             this.newClientButton.UseVisualStyleBackColor = true;
+            this.newClientButton.Click += new System.EventHandler(this.newClientButton_Click);
             // 
             // newJobButton
             // 
