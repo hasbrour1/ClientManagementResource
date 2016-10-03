@@ -88,6 +88,9 @@
     <EmbeddedResource Include="AddJobScreen.resx">
       <DependentUpon>AddJobScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FindJobScreen.resx">
+      <DependentUpon>FindJobScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainScreen.resx">
       <DependentUpon>MainScreen.cs</DependentUpon>
     </EmbeddedResource>
