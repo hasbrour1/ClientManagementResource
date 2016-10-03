@@ -95,7 +95,7 @@
             this.jobGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.jobGridView.Location = new System.Drawing.Point(35, 95);
             this.jobGridView.Name = "jobGridView";
-            this.jobGridView.Size = new System.Drawing.Size(464, 150);
+            this.jobGridView.Size = new System.Drawing.Size(624, 150);
             this.jobGridView.TabIndex = 6;
             // 
             // errorLabel
@@ -110,7 +110,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(529, 266);
+            this.ClientSize = new System.Drawing.Size(686, 273);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.jobGridView);
             this.Controls.Add(this.searchButton);
@@ -119,8 +119,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FindJobScreen";
-            this.Text = "FindJobScreen";
+            this.Text = "Job Finder";
             ((System.ComponentModel.ISupportInitialize)(this.jobGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

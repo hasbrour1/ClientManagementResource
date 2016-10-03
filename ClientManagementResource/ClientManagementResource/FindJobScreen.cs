@@ -33,7 +33,7 @@ namespace ClientManagementResource
             //Will search for job id first, if it is blank it will then search client box
             if(jobIdBox.Text != "") { 
                 String cmd = "SELECT jobs.JobId, clients.ClientName, clients.ClientNumber," +
-                        "jobs.JobDetail, jobs.JobDate, jobs.jobcost FROM clients inner" +
+                        "jobs.JobDetail, jobs.JobDate, jobs.jobcost, jobs.Job_Complete FROM clients inner" +
                         " join jobs ON clients.ClientId = jobs.ClientId" +
                         " WHERE jobs.JobId = " + jobIdBox.Text + ";";
 
@@ -44,7 +44,7 @@ namespace ClientManagementResource
             {
               
                 String cmd = "SELECT jobs.JobId, clients.ClientName, clients.ClientNumber," +
-                        "jobs.JobDetail, jobs.JobDate, jobs.jobcost FROM clients inner" +
+                        "jobs.JobDetail, jobs.JobDate, jobs.jobcost, jobs.Job_Complete FROM clients inner" +
                         " join jobs ON clients.ClientId = jobs.ClientId" +
                         " WHERE clients.ClientName = '" + clientNameBox.Text + "';";
 
