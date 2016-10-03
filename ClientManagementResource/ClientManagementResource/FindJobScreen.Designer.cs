@@ -35,6 +35,7 @@
             this.clientNameBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.jobGridView = new System.Windows.Forms.DataGridView();
+            this.errorLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.jobGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,6 +88,7 @@
             this.searchButton.TabIndex = 5;
             this.searchButton.Text = "Search...";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // jobGridView
             // 
@@ -96,11 +98,20 @@
             this.jobGridView.Size = new System.Drawing.Size(464, 150);
             this.jobGridView.TabIndex = 6;
             // 
+            // errorLabel
+            // 
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.Location = new System.Drawing.Point(133, 76);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(0, 13);
+            this.errorLabel.TabIndex = 7;
+            // 
             // FindJobScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(529, 266);
+            this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.jobGridView);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.clientNameBox);
@@ -125,5 +136,6 @@
         private System.Windows.Forms.TextBox clientNameBox;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.DataGridView jobGridView;
+        private System.Windows.Forms.Label errorLabel;
     }
 }

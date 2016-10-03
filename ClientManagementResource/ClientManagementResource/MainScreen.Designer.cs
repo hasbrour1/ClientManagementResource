@@ -83,6 +83,7 @@
             this.searchJobsButton.TabIndex = 1;
             this.searchJobsButton.Text = "Search for Jobs";
             this.searchJobsButton.UseVisualStyleBackColor = true;
+            this.searchJobsButton.Click += new System.EventHandler(this.searchJobsButton_Click);
             // 
             // newClientButton
             // 
