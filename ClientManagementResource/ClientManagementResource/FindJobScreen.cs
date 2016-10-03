@@ -30,67 +30,57 @@ namespace ClientManagementResource
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            if(jobIdBox.Text != "")
-            {
-                MySqlConnection connection = model.getConnection();
-                connection.Open();
-
-                try
-                {
-                    MySqlCommand cmd = connection.CreateCommand();
-                    cmd.CommandText = "SELECT jobs.JobId, clients.ClientName, clients.ClientNumber," +
+            //Will search for job id first, if it is blank it will then search client box
+            if(jobIdBox.Text != "") { 
+                String cmd = "SELECT jobs.JobId, clients.ClientName, clients.ClientNumber," +
                         "jobs.JobDetail, jobs.JobDate, jobs.jobcost FROM clients inner" +
                         " join jobs ON clients.ClientId = jobs.ClientId" +
                         " WHERE jobs.JobId = " + jobIdBox.Text + ";";
-                    MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
-                    DataSet ds = new DataSet();
-                    adap.Fill(ds);
-                    jobGridView.DataSource = ds.Tables[0].DefaultView;
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
-                finally
-                {
-                    if (connection.State == ConnectionState.Open)
-                    {
-                        connection.Close();
-                    }
-                }
+
+                jobSearchQuery(cmd);
+                  
             }
             else if(clientNameBox.Text != "")
             {
-                MySqlConnection connection = model.getConnection();
-                connection.Open();
-
-                try
-                {
-                    MySqlCommand cmd = connection.CreateCommand();
-                    cmd.CommandText = "SELECT jobs.JobId, clients.ClientName, clients.ClientNumber," +
+              
+                String cmd = "SELECT jobs.JobId, clients.ClientName, clients.ClientNumber," +
                         "jobs.JobDetail, jobs.JobDate, jobs.jobcost FROM clients inner" +
                         " join jobs ON clients.ClientId = jobs.ClientId" +
                         " WHERE clients.ClientName = '" + clientNameBox.Text + "';";
-                    MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
-                    DataSet ds = new DataSet();
-                    adap.Fill(ds);
-                    jobGridView.DataSource = ds.Tables[0].DefaultView;
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
-                finally
-                {
-                    if (connection.State == ConnectionState.Open)
-                    {
-                        connection.Close();
-                    }
-                }
+
+                jobSearchQuery(cmd);
             }
             else
             {
                 errorLabel.Text = "*Please fill out one box";
+            }
+        }
+
+        //This method makes the query
+        private void jobSearchQuery(String command)
+        {
+            MySqlConnection connection = model.getConnection();
+            connection.Open();
+
+            try
+            {
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = command;
+                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adap.Fill(ds);
+                jobGridView.DataSource = ds.Tables[0].DefaultView;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
             }
         }
     }
